@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+  /* background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; */
+}
+
+@keyframes blinking {
+  0% {
+    background-color: red;
+  }
+  25%{
+    background-color: blue;
+  }
+  50%{
+    background-color: purple;
+  }
+  75%{
+    background-color: yellow;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+@keyframes counterBlink {
+  0% {
+    color: red;
+  }
+  25%{
+    color: blue;
+  }
+  50%{
+    color: purple;
+  }
+  75%{
+    color: yellow;
+  }
+  100% {
+    color: green;
+  }
+}
+
+.ShotCounter {
+  animation: counterBlink infinite 2s;
+  font-size: calc(150px + 2vmin);
+}
+
+.Wof {
+  animation: App-logo-spin infinite 1s linear;
+}
+
+.TitleText {
+  font-size: calc(50px + 2vmin);
+  color: black
+}
+
+.BackgroundBlinker {
+  animation: blinking infinite 0.5s;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+  .BackgroundBlinker {
+    animation: blinking infinite;
+  }
+}
+
+.App-header {
+  /* background-color: #282c34; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container{
+  width: 100% !important
+}
