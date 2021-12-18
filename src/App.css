@@ -59,7 +59,7 @@
 }
 
 .BackgroundBlinker {
-  animation: blinking infinite 0.5s;
+  /* animation: blinking infinite 0.5s; */
 }
 
 .App-logo {
@@ -72,7 +72,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
   .BackgroundBlinker {
-    animation: blinking infinite;
+    /* animation: blinking infinite; */
   }
 }
 
