@@ -1,0 +1,18 @@
+.nav-wrapper {
+    background-color: rgb(47, 47, 47) !important;
+    height: 70px !important;
+}
+
+.TitleText {
+    font-size: calc(20px + 2vmin);
+    color: rgb(255, 255, 255);
+  }
+
+.nav-wrapper ul li {
+    padding-right: 50px !important;
+}
+
+.NavBarText {
+    font-size: calc(10px + 2vmin);
+    color: rgb(255, 255, 255);
+  }

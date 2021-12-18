@@ -4,7 +4,6 @@ import Filip from './Filip.jpg';
 import Wilhelm from './Wilhelm.jpg';
 import Mads from './Mads.jpg';
 import './App.css';
-// import ShotTimer from './components/ShotTimer';
 import React, { UseState }from 'react';
 import sound from './dk_rap.mp3'
 import sound2 from './air_horn.mp3'
@@ -20,6 +19,9 @@ import Snowfall from 'react-snowfall'
 import sound6 from './easter_egg.mp3'
 import simp from './simp.jpg'
 import sound7 from './pipa.mp3'
+
+
+import NavBar from './components/navbar/NavBar'
 
 function App() {
   const minSecs = {minutes:14, seconds:59}
@@ -136,13 +138,11 @@ function App() {
   return (
     <div className="App">
       <Snowfall/>
+      <NavBar/>
       <div className="BackgroundBlinker">
         <header className="App-header">
           <div className="container">
             <div className="col l12">
-              <div className="row l12">
-                <h1 className="TitleText" onClick={play} >SWINKYSWONKY HVA GÅR I NEBBET???</h1>
-              </div>
               <div className="row">
                 <div className="col l12"><i className="material-icons" onClick={() => {handleTimerButtons("r")}}>restore</i><i className="material-icons" onClick={() => {handleTimerButtons("s")}}>timer</i><i className="material-icons" onClick={() => {handleTimerButtons("p")}}>timer_off</i></div>
                 <div className="col l12"><p>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</p></div>
