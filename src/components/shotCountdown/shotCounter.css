@@ -1,0 +1,4 @@
+.shotCounter {
+    position: relative;
+    transform: translateY(-50%);
+}

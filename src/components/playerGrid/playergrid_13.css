@@ -1,0 +1,13 @@
+.row {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    line-height: 0px !important;
+}
+
+.grid {
+    position: fixed;
+    bottom: 50px;
+    border-style: outset; 
+    border-color: rgb(47, 47, 47);
+    border-width: 5px;
+}
