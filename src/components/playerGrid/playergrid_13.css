@@ -11,3 +11,23 @@
     border-color: rgb(47, 47, 47);
     border-width: 5px;
 }
+
+.nameRow {
+    display:flex;
+    flex-direction: wrap;
+    background-color: rgb(47, 47, 47);
+}
+
+.nameBox {
+    padding-left: 40px;
+    padding-right: 45px;
+    font-family: 'Papyrus'; 
+    color: white;
+    text-shadow: 1px 1px 1px;
+}
+
+.imgBox {
+    border-style: outset; 
+    border-color: rgb(47, 47, 47);
+    border-width: 1px;
+}

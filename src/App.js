@@ -25,6 +25,7 @@ import NavBar from './components/navbar/NavBar'
 import Counter from './components/counter/counter'
 import PlayerGrid_13 from './components/playerGrid/playergrid_13'
 import ShotCounter from './components/shotCountdown/shotCountdown'
+import ShotSelector from './components/shotCountdown/shotSelector/shotSelector';
 
 function App() {
   const minSecs = { minutes: 14, seconds: 59 }
@@ -140,12 +141,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Snowfall />
+    <div className="App" style={{height: document.documentElement.clientHeight}}>
       <NavBar />
       <Counter /> 
       <ShotCounter />
       <PlayerGrid_13/>
+      <ShotSelector />
+      <Snowfall />
       {/* <div className="BackgroundBlinker">
         <header className="App-header">
           <div className="container">

@@ -1,28 +1,11 @@
 import React from 'react'
 import './playergrid_13.css';
-import Filip from './drinkingImages/beer.jpg'
-import Beer from './drinkingImages/beer.jpg';
+import { useSelector } from 'react-redux'
 
 const PlayerGrid_13 = () => {
     const imgHeight = 130;
     const imgWidth = 130;
-    const playerDict = {
-        "Filip": [],
-        "Helena": [],
-        "Petter": [],
-        "Alina": [],
-        "Tommy": [],
-        "Andrea": [],
-        "Mathias": [],
-        "Haakon": [],
-        "Wilhelm": [],
-        "Herman": [],
-        "Jesper": [],
-        "Richard": [],
-        "Nhu": [],
-        // "Mona": [],
-        // "Camilla": []
-    }
+    const playerDict = useSelector(state => state.playerState)
     const screenWidth = document.documentElement.clientWidth
     const playerGridWidth = 10+imgWidth*Object.keys(playerDict).length
     const paddingLeft = (screenWidth-playerGridWidth)/2
@@ -44,7 +27,7 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img src={values[0]} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img className="imgBox" src={values[0]} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
                 )
             })
         )
@@ -63,7 +46,17 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img src={values[1]} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img className="imgBox" src={values[1]} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                )
+            })
+        )
+    }
+
+    const getNames = () => {
+        return(
+            Object.entries(playerDict).map(([keys, values]) => {
+                return(
+                    <div className="nameBox" key={`${keys}_name`} style={{width: `${imgWidth}px`}}>{keys}</div>
                 )
             })
         )
@@ -74,6 +67,7 @@ const PlayerGrid_13 = () => {
             <div className="row">
                 {playerImages()}
             </div>
+            <div className="nameRow">{getNames()}</div>
             <div className="row">
                 {drinkingImages()}
             </div>

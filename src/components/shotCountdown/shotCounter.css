@@ -2,3 +2,27 @@
     position: relative;
     transform: translateY(-50%);
 }
+
+@keyframes counterBlink {
+    0% {
+      color: red;
+    }
+    25%{
+      color: blue;
+    }
+    50%{
+      color: purple;
+    }
+    75%{
+      color: yellow;
+    }
+    100% {
+      color: green;
+    }
+  }
+  
+  .ShotText {
+    animation: counterBlink infinite 2s;
+    font-size: calc(200px + 2vmin);
+    
+  }

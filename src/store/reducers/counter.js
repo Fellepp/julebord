@@ -1,7 +1,7 @@
 import { SET } from '../constants'
 
 const initTimeState = [
-    15, 0
+    15, 0, 60
 ]
 
 const counterReducer = (state = initTimeState, action) => {

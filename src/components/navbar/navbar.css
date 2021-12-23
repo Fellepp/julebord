@@ -1,11 +1,15 @@
 .nav-wrapper {
     background-color: rgb(47, 47, 47) !important;
-    height: 70px !important;
+    height: 85px !important;
+    border-style: none none outset none; 
+    border-color: lightgrey;
+    border-width: 3px;
 }
 
 .TitleText {
     font-size: calc(20px + 2vmin);
     color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px grey;
   }
 
 .nav-wrapper ul li {
