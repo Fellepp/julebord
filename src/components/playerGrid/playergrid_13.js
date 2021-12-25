@@ -3,17 +3,18 @@ import './playergrid_13.css';
 import { useSelector } from 'react-redux'
 
 const PlayerGrid_13 = () => {
-    const imgHeight = 130;
-    const imgWidth = 130;
+    const imgHeight = 150;
+    const imgWidth = 150;
     const playerDict = useSelector(state => state.playerState)
     const screenWidth = document.documentElement.clientWidth
-    const playerGridWidth = 10+imgWidth*Object.keys(playerDict).length
-    const paddingLeft = (screenWidth-playerGridWidth)/2
+    const playerGridWidth = 10 + imgWidth * Object.keys(playerDict).length
+    const paddingLeft = (screenWidth - playerGridWidth) / 2
+    const shotTimer = useSelector(state => state.timer[2])
 
     const loadPlayerImages = () => {
         Object.entries(playerDict).map(([keys, values]) => {
             return (
-                values.push(`./images/playerImages/${keys}.jpg`)
+                values['playerImg'] = `./images/playerImages/${keys}.jpg`
             )
         })
     }
@@ -27,7 +28,7 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img className="imgBox" src={values[0]} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img className="imgBox" src={values['playerImg']} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
                 )
             })
         )
@@ -36,8 +37,13 @@ const PlayerGrid_13 = () => {
     const loadDrinkingImages = () => {
         Object.entries(playerDict).map(([keys, values]) => {
             return (
-                values.push(`./images/drinkingImages/beer.jpg`)
+                values['shotType'] === "beer" ? values['drinkingImg'] = `./images/drinkingImages/beer.jpg`
+                    : values['shotType'] === "vodka" ? values['drinkingImg'] = `./images/drinkingImages/vodka.jpg`
+                        : values['shotType'] === "wine" ? values['drinkingImg'] = `./images/drinkingImages/wine.jpg`
+                            : values['shotType'] === "fp" ? values['drinkingImg'] = `./images/drinkingImages/free_pass.jpg`
+                                : null
             )
+
         })
     }
 
@@ -46,24 +52,43 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img className="imgBox" src={values[1]} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img className="imgBox" src={values['drinkingImg']} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
                 )
             })
         )
     }
 
     const getNames = () => {
-        return(
+        return (
             Object.entries(playerDict).map(([keys, values]) => {
-                return(
-                    <div className="nameBox" key={`${keys}_name`} style={{width: `${imgWidth}px`}}>{keys}</div>
+                return (
+                    <div className="nameBox" key={`${keys}_name`} style={{ width: `${imgWidth}px` }}>{keys}</div>
+                )
+            })
+        )
+    }
+
+    const getStats = () => {
+        return (
+            Object.entries(playerDict).map(([keys, values]) => {
+                return (
+                    <div>
+                        <div className="statsBox" key={`${keys}_stats1`} style={{ fontSize: 13, width: `${imgWidth}px` }}>
+                            <div style={{ width: "50%", float: "left" }}>{values['beer'] >= 0 ? `Øl: ${values['beer']}` : `Øl: 0`}</div>
+                            <div style={{ width: "50%", float: "right" }}>{values['vodka'] >= 0 ? `Sprit: ${values['vodka']}` : `Sprit: 0`}</div>
+                        </div>
+                        <div className="statsBox" key={`${keys}_stats2`} style={{ fontSize: 13, width: `${imgWidth}px` }}>
+                            <div style={{ width: "50%", float: "left" }}>{values['wine'] >= 0 ? `Vin: ${values['wine']}` : `Vin: 0`}</div>
+                            <div style={{ width: "50%", float: "right" }}>{values['fp'] >= 0 ? `FP: ${values['fp']}` : `FP: 0`}</div>
+                        </div>
+                    </div>
                 )
             })
         )
     }
 
     return (
-        <div className="grid" style={{left: `${paddingLeft}px`}}>
+        <div className="grid" style={{ left: `${paddingLeft}px` }}>
             <div className="row">
                 {playerImages()}
             </div>
@@ -71,6 +96,7 @@ const PlayerGrid_13 = () => {
             <div className="row">
                 {drinkingImages()}
             </div>
+            <div className="nameRow">{getStats()}</div>
         </div>
     )
 }

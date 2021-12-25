@@ -1,19 +1,17 @@
 import { SETPLAYERS } from '../constants'
 
 const initConfig = {
-    "Filip": [],
-    "Helena": [],
-    "Petter": [],
-    "Alina": [],
-    "Tommy": [],
-    "Andrea": [],
-    "Mathias": [],
-    "Haakon": [],
-    "Wilhelm": [],
-    "Herman": [],
-    "Jesper": [],
-    "Richard": [],
-    "Nhu": [],
+    "Filip": {},
+    "Helena": {},
+    "Petter": {},
+    "Alina": {},
+    "Tommy": {},
+    "Andrea": {},
+    "Mathias": {},
+    "Haakon": {},
+    "Wilhelm": {},
+    "Herman": {},
+    "Jesper": {},
     // "Mona": [],
     // "Camilla": []
 }

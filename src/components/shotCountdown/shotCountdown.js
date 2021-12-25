@@ -4,7 +4,7 @@ import './shotCounter.css'
 import { useState, useEffect } from 'react'
 
 const ShotCountdown = () => {
-    const counterPadding = document.documentElement.clientHeight / 10
+    const counterPadding = document.documentElement.clientHeight / 100
 
     const [minsG, secsG, shotSecs] = useSelector(state => [
         state.timer[0],
