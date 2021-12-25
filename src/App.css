@@ -6,7 +6,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white; */
-  background-color: lightblue;
+  /* background-color: lightblue; */
+  position: absolute;
+  background-image: "../public/logo/nebbet.jpg";
 }
 
 @keyframes blinking {

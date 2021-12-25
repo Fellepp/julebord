@@ -1,7 +1,7 @@
 import { SETTIME, SETWEIGHTS } from '../constants'
 
 const initConfig = {
-    timeValues: [30, 0, 45],
+    timeValues: [10, 0, 45],
     drinkingChoices: {
         fp: 1,
         beer: 5,

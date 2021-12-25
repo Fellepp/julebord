@@ -31,13 +31,7 @@ const ShotSelector = () => {
 
     return (
         <div>
-            {shotTimer === 40 ? shotRoulette() : null}
-            {shotTimer === 35 ? shotRoulette() : null}
-            {shotTimer === 30 ? shotRoulette() : null}
-            {shotTimer === 25 ? shotRoulette() : null}
-            {shotTimer === 20 ? shotRoulette() : null}
-            {console.log(playerDict)}
-            {console.log(drinkingDict)}
+            {shotTimer === 31 ? shotRoulette() : null}
         </div>
     )
 }

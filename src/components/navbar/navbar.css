@@ -10,14 +10,23 @@
     font-size: calc(20px + 2vmin);
     color: rgb(255, 255, 255);
     text-shadow: 3px 3px 3px grey;
+    position: relative;
+    top: -7px;
   }
 
 .nav-wrapper ul li {
-    padding-right: 50px !important;
-    padding-left: 50px !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
 }
 
 .NavBarText {
     font-size: calc(10px + 2vmin);
     color: rgb(255, 255, 255);
+    position: relative;
+    padding-top: 3%;
   }
+
+.titleLogo {
+  height: 50px;
+  width: 50px;
+}

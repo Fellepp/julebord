@@ -8,12 +8,12 @@ const initConfig = {
     "Tommy": {},
     "Andrea": {},
     "Mathias": {},
-    "Haakon": {},
-    "Wilhelm": {},
+    // "Haakon": {},
+    // "Wilhelm": {},
     "Herman": {},
     "Jesper": {},
-    // "Mona": [],
-    // "Camilla": []
+    // "Richard": {},
+    // "Nhu": {},
 }
 
 const PlayerConfigReducer = (state = initConfig, action) => {

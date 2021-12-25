@@ -10,6 +10,7 @@ const PlayerGrid_13 = () => {
     const playerGridWidth = 10 + imgWidth * Object.keys(playerDict).length
     const paddingLeft = (screenWidth - playerGridWidth) / 2
     const shotTimer = useSelector(state => state.timer[2])
+    let spinner = false
 
     const loadPlayerImages = () => {
         Object.entries(playerDict).map(([keys, values]) => {
@@ -36,14 +37,26 @@ const PlayerGrid_13 = () => {
 
     const loadDrinkingImages = () => {
         Object.entries(playerDict).map(([keys, values]) => {
-            return (
-                values['shotType'] === "beer" ? values['drinkingImg'] = `./images/drinkingImages/beer.jpg`
-                    : values['shotType'] === "vodka" ? values['drinkingImg'] = `./images/drinkingImages/vodka.jpg`
-                        : values['shotType'] === "wine" ? values['drinkingImg'] = `./images/drinkingImages/wine.jpg`
-                            : values['shotType'] === "fp" ? values['drinkingImg'] = `./images/drinkingImages/free_pass.jpg`
-                                : null
-            )
-
+            spinner = false
+            if (shotTimer <= 40 && shotTimer > 30) { //SPINNER
+                if (shotTimer < 40) { spinner = true }
+                return (
+                    values['drinkingImg'] = `./images/drinkingImages/wof.png`
+                )
+            }
+            else if (shotTimer <= 30 && shotTimer >= 25) { //GETS SHOT
+                return (
+                    values['shotType'] === "beer" ? values['drinkingImg'] = `./images/drinkingImages/beer.jpg`
+                        : values['shotType'] === "vodka" ? values['drinkingImg'] = `./images/drinkingImages/vodka.jpg`
+                            : values['shotType'] === "wine" ? values['drinkingImg'] = `./images/drinkingImages/wine.jpg`
+                                : values['shotType'] === "fp" ? values['drinkingImg'] = `./images/drinkingImages/free_pass.jpg`
+                                    : null
+                )
+            } else {
+                return (
+                    values['drinkingImg'] = `./images/logo/nebbet_transparent.png`
+                )
+            }
         })
     }
 
@@ -51,9 +64,16 @@ const PlayerGrid_13 = () => {
         loadDrinkingImages()
         return (
             Object.entries(playerDict).map(([keys, values]) => {
-                return (
-                    <img className="imgBox" src={values['drinkingImg']} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
-                )
+                if (spinner) {
+                    return (
+                        <img className={"Wof"} src={values['drinkingImg']} key={`${keys}_drinkingwof`} height={imgHeight} width={imgWidth} alt="" />
+                    )
+                }
+                else {
+                    return (
+                        <img className={"imgBox"} src={values['drinkingImg']} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" />
+                    )
+                }
             })
         )
     }
@@ -74,12 +94,12 @@ const PlayerGrid_13 = () => {
                 return (
                     <div>
                         <div className="statsBox" key={`${keys}_stats1`} style={{ fontSize: 13, width: `${imgWidth}px` }}>
-                            <div style={{ width: "50%", float: "left" }}>{values['beer'] >= 0 ? `Øl: ${values['beer']}` : `Øl: 0`}</div>
-                            <div style={{ width: "50%", float: "right" }}>{values['vodka'] >= 0 ? `Sprit: ${values['vodka']}` : `Sprit: 0`}</div>
+                            <div key={`${keys}_beer`} style={{ width: "50%", float: "left" }}>{values['beer'] >= 0 ? `Øl: ${values['beer']}` : `Øl: 0`}</div>
+                            <div key={`${keys}_vodka`} style={{ width: "50%", float: "right" }}>{values['vodka'] >= 0 ? `Sprit: ${values['vodka']}` : `Sprit: 0`}</div>
                         </div>
                         <div className="statsBox" key={`${keys}_stats2`} style={{ fontSize: 13, width: `${imgWidth}px` }}>
-                            <div style={{ width: "50%", float: "left" }}>{values['wine'] >= 0 ? `Vin: ${values['wine']}` : `Vin: 0`}</div>
-                            <div style={{ width: "50%", float: "right" }}>{values['fp'] >= 0 ? `FP: ${values['fp']}` : `FP: 0`}</div>
+                            <div key={`${keys}_wine`} style={{ width: "50%", float: "left" }}>{values['wine'] >= 0 ? `Vin: ${values['wine']}` : `Vin: 0`}</div>
+                            <div key={`${keys}_fp`} style={{ width: "50%", float: "right" }}>{values['fp'] >= 0 ? `FP: ${values['fp']}` : `FP: 0`}</div>
                         </div>
                     </div>
                 )
@@ -89,13 +109,9 @@ const PlayerGrid_13 = () => {
 
     return (
         <div className="grid" style={{ left: `${paddingLeft}px` }}>
-            <div className="row">
-                {playerImages()}
-            </div>
+            <div className="row">{playerImages()}</div>
             <div className="nameRow">{getNames()}</div>
-            <div className="row">
-                {drinkingImages()}
-            </div>
+            <div className="row">{drinkingImages()}</div>
             <div className="nameRow">{getStats()}</div>
         </div>
     )

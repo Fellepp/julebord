@@ -13,7 +13,7 @@ const ShotCountdown = () => {
     ])
 
     return (
-        <div className="shotCounter" style={{ top: `${counterPadding}px` }}>
+        <div className="shotCounter">
             <p className="ShotText">{`${shotSecs.toString().padStart(2,)}`}</p>
         </div>
 

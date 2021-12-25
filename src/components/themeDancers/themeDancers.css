@@ -1,0 +1,19 @@
+.danceBoys{
+    display:flex;
+    width: 100%;
+    position: relative;
+    top: 5%;
+}
+
+.imgClass{
+    height: 200px;
+    width: 200px;
+}
+
+.divDance{
+    width: 50%;
+}
+
+.divDance2{
+    width: 30%;
+}
