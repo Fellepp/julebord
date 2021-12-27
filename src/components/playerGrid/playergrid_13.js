@@ -38,13 +38,13 @@ const PlayerGrid_13 = () => {
     const loadDrinkingImages = () => {
         Object.entries(playerDict).map(([keys, values]) => {
             spinner = false
-            if (shotTimer <= 40 && shotTimer > 30) { //SPINNER
-                if (shotTimer < 40) { spinner = true }
+            if (shotTimer <= 14 && shotTimer > 5) { //SPINNER
+                if (shotTimer < 14) { spinner = true }
                 return (
                     values['drinkingImg'] = `./images/drinkingImages/wof.png`
                 )
             }
-            else if (shotTimer <= 30 && shotTimer >= 25) { //GETS SHOT
+            else if (shotTimer <= 5 && shotTimer >= 0) { //GETS SHOT
                 return (
                     values['shotType'] === "beer" ? values['drinkingImg'] = `./images/drinkingImages/beer.jpg`
                         : values['shotType'] === "vodka" ? values['drinkingImg'] = `./images/drinkingImages/vodka.jpg`

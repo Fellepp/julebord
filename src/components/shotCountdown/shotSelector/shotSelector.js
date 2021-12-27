@@ -28,10 +28,9 @@ const ShotSelector = () => {
         })
     }
 
-
     return (
         <div>
-            {shotTimer === 31 ? shotRoulette() : null}
+            {shotTimer === 6 ? shotRoulette() : null}
         </div>
     )
 }

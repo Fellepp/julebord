@@ -11,7 +11,7 @@ const themeDancers = () => {
             </div>
             <div className="divDance" style={{ float: "right" }} >
                 <div className="divDance2" style={{ float: "right" }}>
-                    <img className="imgClass" style={{ float: "left" }} src={"./images/logo/dk_dance.gif"} />
+                    <img className="imgClass" style={{ float: "left" }} src={"./images/logo/diddy_dance.gif"} />
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
-import { SET } from '../constants'
+import { SETCONFIG } from '../constants'
 
-export function setTimeGlobally(payload) {
+export function setConfig(payload) {
     return {
-        type: SET,
+        type: SETCONFIG,
         payload
     }
 }

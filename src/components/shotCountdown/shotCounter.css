@@ -13,7 +13,7 @@
   transform: translate(-50%, -65%);
 }
 
-@keyframes counterBlink {
+/* @keyframes counterBlink {
     0% {
       color: red;
     }
@@ -28,6 +28,24 @@
     }
     100% {
       color: green;
+    }
+  } */
+
+  @keyframes counterBlink {
+    0% {
+      color: #663605;
+    }
+    25%{
+      color: #8B500B;
+    }
+    50%{
+      color: #753513;
+    }
+    75%{
+      color: #F8C477;
+    }
+    100% {
+      color: #EA0000;
     }
   }
   

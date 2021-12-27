@@ -1,15 +1,16 @@
 .nav-wrapper {
-    background-color: rgb(47, 47, 47) !important;
+    /* background-color: rgb(47, 47, 47) !important; */
+    background-color: #753513;
     height: 85px !important;
     border-style: none none outset none; 
-    border-color: lightgrey;
+    border-color: black;
     border-width: 3px;
 }
 
 .TitleText {
     font-size: calc(20px + 2vmin);
     color: rgb(255, 255, 255);
-    text-shadow: 3px 3px 3px grey;
+    text-shadow: 3px 3px 3px black;
     position: relative;
     top: -7px;
   }
@@ -29,4 +30,9 @@
 .titleLogo {
   height: 50px;
   width: 50px;
+}
+
+.buttonIcon {
+  cursor: pointer;
+  user-select: none;
 }

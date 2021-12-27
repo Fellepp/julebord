@@ -1,4 +1,4 @@
-import { SETTIME, SETWEIGHTS } from '../constants'
+import { SETCONFIG } from '../constants'
 
 const initConfig = {
     timeValues: [10, 0, 45],
@@ -12,10 +12,14 @@ const initConfig = {
 
 const GameConfigReducer = (state = initConfig, action) => {
     switch (action.type) {
-        case SETTIME:
-            return state
-        case SETWEIGHTS:
-            return state
+        case SETCONFIG:
+            let newTime = Object.assign(state, {
+                ...action.payload
+            })
+            return {
+                ...state,
+                ...newTime
+            }
         default:
             return state
     }

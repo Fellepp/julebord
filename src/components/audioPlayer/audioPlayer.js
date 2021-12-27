@@ -32,10 +32,9 @@ const useAudio = () => {
     );
 
     useEffect(() => {
-        audio.addEventListener('ended', () => setPlaying(true));
-        console.log("in here")
+        audio.addEventListener('ended', () => audio.play());
         return () => {
-            audio.removeEventListener('ended', () => setPlaying(false));
+            audio.removeEventListener('ended', () => setPlaying(true));
         };
     }, []);
 

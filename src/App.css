@@ -8,7 +8,6 @@
   color: white; */
   /* background-color: lightblue; */
   position: absolute;
-  background-image: "../public/logo/nebbet.jpg";
 }
 
 @keyframes blinking {
