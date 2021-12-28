@@ -10,6 +10,8 @@ const PlayerGrid_13 = () => {
     const playerGridWidth = 10 + imgWidth * Object.keys(playerDict).length
     const paddingLeft = (screenWidth - playerGridWidth) / 2
     const shotTimer = useSelector(state => state.timer[2])
+    const theme = useSelector (state => state.theme)
+    const mainColor = theme.colors.main
     let spinner = false
 
     const loadPlayerImages = () => {
@@ -29,7 +31,7 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img className="imgBox" src={values['playerImg']} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img style={{ borderColor: `${mainColor}` }}className="imgBox" src={values['playerImg']} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
                 )
             })
         )
@@ -71,7 +73,7 @@ const PlayerGrid_13 = () => {
                 }
                 else {
                     return (
-                        <img className={"imgBox"} src={values['drinkingImg']} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" />
+                        <img style={{ borderColor: `${mainColor}` }} className={"imgBox"} src={values['drinkingImg']} key={`${keys}_drinking`} height={imgHeight} width={imgWidth} alt="" />
                     )
                 }
             })
@@ -108,11 +110,11 @@ const PlayerGrid_13 = () => {
     }
 
     return (
-        <div className="grid" style={{ left: `${paddingLeft}px` }}>
+        <div className="grid" style={{ borderColor: `${mainColor}`, left: `${paddingLeft}px` }}>
             <div className="row">{playerImages()}</div>
-            <div className="nameRow">{getNames()}</div>
+            <div style={{ backgroundColor: `${mainColor}` }} className="nameRow">{getNames()}</div>
             <div className="row">{drinkingImages()}</div>
-            <div className="nameRow">{getStats()}</div>
+            <div style={{ backgroundColor: `${mainColor}` }} className="nameRow">{getStats()}</div>
         </div>
     )
 }

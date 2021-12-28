@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import './audioPlayer.css'
+import { useSelector } from 'react-redux'
 
 const useAudio = () => {
-    const [audio] = useState(new Audio('/audio/dk_rap.mp3'));
-    // const [audio] = useState(new Audio('/audio/air_horn.mp3'));
+    const path = useSelector(state => state.theme.path)
+    const [audio] = useState(new Audio(`${path}audio.mp3`));
     const [playing, setPlaying] = useState(false);
     const [mute, setMute] = useState(false);
 

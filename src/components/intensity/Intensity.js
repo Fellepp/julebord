@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Intensity.css'
 import { useSelector, useDispatch } from 'react-redux'
-// import Background from '../../images/background.jpg'
 import { setConfig } from '../../store/actions/gameConfigActions'
-import { setTimeGlobally } from '../../store/actions/playerConfigActions'
 
 const Intensity = (props) => {
     const TITLE = "Innstillinger"
@@ -17,6 +15,10 @@ const Intensity = (props) => {
         timeValues: state.config.timeValues,
         drinkingDict: state.config.drinkingChoices
     }))
+    const theme = useSelector(state => state.theme)
+    const mainColor = theme.colors.main
+    const secondaryColor = theme.colors.secondary
+    const miscColor = theme.colors.misc
     const dispatch = useDispatch()
     const [selected, setSelected] = useState({
         img1: "100",
@@ -159,9 +161,9 @@ const Intensity = (props) => {
 
     return (
         <div className="popup-box">
-            <div className="box">
-                <span className="close-icon" onClick={props.handleClose}>x</span>
-                <nav className="popup-nav">
+            <div className="box" style={{ backgroundColor: `${secondaryColor}` }}>
+                <span className="close-icon" style={{ backgroundColor: `${miscColor}` }} onClick={props.handleClose}>x</span>
+                <nav className="popup-nav" style={{ backgroundColor: `${mainColor}` }}>
                     <a className="brand-logo center"><h5 className="TitleTextPopup">
                         {TITLE}</h5></a>
                 </nav>
@@ -220,7 +222,7 @@ const Intensity = (props) => {
                     <div style={{ position: "relative", right: "-53%" }}>{types}
                     </div>
                 </div>
-                <button onClick={() => { saveChanges() }} style={{ marginTop: "5%", backgroundColor: "#753513" }} className="btn waves-effect waves-light" type="submit" name="action">Lagre endringer
+                <button onClick={() => { saveChanges() }} style={{ marginTop: "5%", backgroundColor: `${mainColor}` }} className="btn waves-effect waves-light" type="submit" name="action">Lagre endringer
                     <i className="material-icons right">send</i>
                 </button>
                 <div style={{ marginTop: "0%", color: "red" }} >{textValid ? <></> : errorMessage}</div>

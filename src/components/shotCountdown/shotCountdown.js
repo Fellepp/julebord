@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 
 const ShotCountdown = () => {
     const counterPadding = document.documentElement.clientHeight / 100
+    const mainColor = useSelector(state => state.theme.colors.main)
 
     const [minsG, secsG, shotSecs] = useSelector(state => [
         state.timer[0],
@@ -14,7 +15,7 @@ const ShotCountdown = () => {
 
     return (
         <div className="shotCounter">
-            <p className="ShotText">{`${shotSecs.toString().padStart(2,)}`}</p>
+            <p style={{color: `${mainColor}`}} className="ShotText">{`${shotSecs.toString().padStart(2,)}`}</p>
         </div>
 
     )

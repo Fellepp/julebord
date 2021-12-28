@@ -10,28 +10,10 @@
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -65%);
+  transform: translate(-50%, -65%)
 }
 
-/* @keyframes counterBlink {
-    0% {
-      color: red;
-    }
-    25%{
-      color: blue;
-    }
-    50%{
-      color: purple;
-    }
-    75%{
-      color: yellow;
-    }
-    100% {
-      color: green;
-    }
-  } */
-
-  @keyframes counterBlink {
+  /* @keyframes counterBlink {
     0% {
       color: #663605;
     }
@@ -47,10 +29,10 @@
     100% {
       color: #EA0000;
     }
-  }
+  } */
   
   .ShotText {
-    animation: counterBlink infinite 2s;
+    /* animation: counterBlink infinite 2s; */
     font-size: calc(200px + 2vmin);
-    
+    text-shadow: 3px 3px 3px black;
   }

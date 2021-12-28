@@ -1,7 +1,10 @@
 import React from 'react'
 import './themeDancers.css'
+import { useSelector } from 'react-redux'
 
-const themeDancers = () => {
+const ThemeDancers = () => {
+    const theme = useSelector(state => state.theme.path)
+
     return (
         <div className="danceBoys">
             <div className="divDance" style={{ float: "left" }} >
@@ -18,4 +21,4 @@ const themeDancers = () => {
     )
 }
 
-export default themeDancers
+export default ThemeDancers

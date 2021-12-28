@@ -16,6 +16,8 @@ const NavBar = () => {
         state.timer[0],
         state.timer[1]
     ])
+    const theme = useSelector(state => state.theme)
+    const mainColor = theme.colors.main
 
     const handleTimerButtons = (action) => {
         if (action === "s") {
@@ -45,7 +47,7 @@ const NavBar = () => {
     return (
         <div>
             <nav>
-                <div className="nav-wrapper" style={{ borderLine: "outset" }}>
+                <div className="nav-wrapper" style={{ backgroundColor: `${mainColor}`, borderLine: "outset" }}>
                     <a className="brand-logo center"><h5 className="TitleText">
                         <img className="titleLogo" src={`./images/logo/nebbet_transparent.png`} />
                         {TITLE}

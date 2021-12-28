@@ -1,5 +1,5 @@
 .popup-nav {
-    background-color: #753513;
+    /* background-color: #753513; */
     color: black;
     border-style: none none outset none; 
     border-color: black;
@@ -28,7 +28,7 @@
     margin: 0 auto;
     height: 100%;
     max-height: 60%;
-    background: #F8C477;
+    /* background: #F8C477; */
     border-radius: 4px;
     border: 1px solid black;
     overflow: auto;
@@ -41,7 +41,7 @@
     position: fixed;
     right: 29%;
     top: 17%;
-    background: #EA0000;
+    /* background: #EA0000; */
     width: 25px;
     height: 25px;
     border-radius: 50%;
