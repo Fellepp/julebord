@@ -1,0 +1,35 @@
+.nav-wrapper {
+    border-style: none none outset none; 
+    border-color: black;
+    border-width: 3px;
+    position: absolute;
+    height: 10vh !important;
+}
+
+.TitleText {
+    /* font-size: calc(20px + 2vmin); */
+    /* font-size: 3vh; */
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 3px black;
+    position: relative;
+    /* vertical-align: middle; */
+  }
+
+.nav-wrapper ul li { 
+    margin-right: 1vw !important;
+    margin-left: 1vw !important;
+}
+
+.NavBarText {
+    /* font-size: calc(10px + 2vmin); */
+    /* font-size: 3vh; */
+    color: rgb(255, 255, 255);
+    position: relative;
+    text-shadow: 3px 3px 3px black;
+    /* vertical-align: middle; */
+  }
+
+.buttonIcon {
+  cursor: pointer;
+  user-select: none;
+}
