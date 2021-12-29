@@ -12,6 +12,7 @@ const initConfig = {
     // "Wilhelm": {},
     "Herman": {},
     "Jesper": {},
+    "Gard": {}
     // "Richard": {},
     // "Nhu": {},
 }

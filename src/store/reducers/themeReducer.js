@@ -1,11 +1,11 @@
 import { SETTHEME } from '../constants'
 
 const initConfig = {
+    name: "dk",
     colors: {
         main: "#753513", 
         secondary : "#F8C477",
         misc: "#EA0000",
-        shadow: "black",
     },
     path: "./images/DK/"
 }

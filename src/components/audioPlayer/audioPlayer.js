@@ -3,8 +3,9 @@ import './audioPlayer.css'
 import { useSelector } from 'react-redux'
 
 const useAudio = () => {
-    const path = useSelector(state => state.theme.path)
-    const [audio] = useState(new Audio(`${path}audio.mp3`));
+    const theme = useSelector(state => state.theme)
+    const path = theme.path
+    const [audio, setAudio] = useState(new Audio(`${path}audio.mp3`));
     const [playing, setPlaying] = useState(false);
     const [mute, setMute] = useState(false);
 
@@ -24,6 +25,21 @@ const useAudio = () => {
         }
     }
 
+    useEffect(() => {
+        if (playing ? audio.play() : null)
+        if (mute ? audio.volume = 0 : null)
+        setPlaying(true)
+        console.log(audio, path)
+    },
+        [audio]
+    );
+
+    useEffect(() => {
+        audio.pause()
+        setAudio(new Audio(`${path}audio.mp3`))
+    },
+        [path]
+    );
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();

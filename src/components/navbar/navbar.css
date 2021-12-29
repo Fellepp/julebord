@@ -1,36 +1,37 @@
 .nav-wrapper {
-    /* background-color: rgb(47, 47, 47) !important; */
-    /* background-color: #753513; */
-    height: 85px !important;
     border-style: none none outset none; 
     border-color: black;
     border-width: 3px;
+    position: absolute;
+    height: 10vh !important;
 }
 
 .TitleText {
-    font-size: calc(20px + 2vmin);
+    /* font-size: calc(20px + 2vmin); */
+    font-size: 3vh;
     color: rgb(255, 255, 255);
     text-shadow: 3px 3px 3px black;
     position: relative;
-    top: -7px;
+    margin-top: 2vh;
   }
 
 .nav-wrapper ul li {
-    padding-right: 40px !important;
-    padding-left: 40px !important;
+    margin-right: 1vw !important;
+    margin-left: 1vw !important;
 }
 
 .NavBarText {
-    font-size: calc(10px + 2vmin);
+    /* font-size: calc(10px + 2vmin); */
+    font-size: 3vh;
     color: rgb(255, 255, 255);
     position: relative;
-    padding-top: 3%;
     text-shadow: 3px 3px 3px black;
+    margin-top: 2vh;
   }
 
 .titleLogo {
-  height: 50px;
-  width: 50px;
+  height: 5vh;
+  width: 5vh;
 }
 
 .buttonIcon {
