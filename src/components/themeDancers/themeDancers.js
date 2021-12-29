@@ -6,7 +6,7 @@ const ThemeDancers = () => {
     const path = useSelector(state => state.theme.path)
     const screenWidth = document.documentElement.clientWidth
     const screenHeight = document.documentElement.clientHeight
-    const screenSize = screenWidth / 10
+    const screenSize = screenWidth / 5
 
     return (
         <div className="danceBoys">
