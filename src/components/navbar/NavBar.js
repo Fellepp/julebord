@@ -164,7 +164,6 @@ const NavBar = () => {
     return (
         <div>
             <nav style={{ height: "10vh" }}>
-                {console.log(paddingTopNav)}
                 <div className="nav-wrapper" style={{ backgroundColor: `${mainColor}`, borderLine: "outset" }}>
                     <a className="brand-logo center" style={{ paddingTop: `${paddingTopNav}px`, width: `50vw`, maxHeight: "10vh", fontSize: `${titleFontSize}px` }}><div className="TitleText">
                         <img className="titleLogo" style={{ width: `${imageSize}px`, height: `${imageSize}px` }} src={`./images/logo/nebbet_transparent.png`} />

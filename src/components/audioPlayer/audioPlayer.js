@@ -27,9 +27,10 @@ const useAudio = () => {
 
     useEffect(() => {
         if (playing ? audio.play() : null)
+        // audio.play()
         if (mute ? audio.volume = 0 : null)
+        // audio.addEventListener('ended', () => audio.play());
         setPlaying(true)
-        console.log(audio, path)
     },
         [audio]
     );
@@ -42,6 +43,7 @@ const useAudio = () => {
     );
 
     useEffect(() => {
+        console.log(audio)
         playing ? audio.play() : audio.pause();
         mute ? audio.volume = 0 : audio.volume = 1
     },
@@ -53,7 +55,7 @@ const useAudio = () => {
         return () => {
             audio.removeEventListener('ended', () => setPlaying(true));
         };
-    }, []);
+    }, [audio]);
 
     return [playing, toggle, mute, toggleSound, volumeUp, volumeDown];
 };
