@@ -43,7 +43,6 @@ const useAudio = () => {
     );
 
     useEffect(() => {
-        console.log(audio)
         playing ? audio.play() : audio.pause();
         mute ? audio.volume = 0 : audio.volume = 1
     },
