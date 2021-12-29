@@ -8,6 +8,7 @@ const useAudio = () => {
     const [audio, setAudio] = useState(new Audio(`${path}audio.mp3`));
     const [playing, setPlaying] = useState(false);
     const [mute, setMute] = useState(false);
+    audio.volume = 0.3
 
     const toggle = () => setPlaying(!playing);
     const toggleSound = () => setMute(!mute)
@@ -60,13 +61,23 @@ const useAudio = () => {
 
 const Player = () => {
     const [playing, toggle, mute, toggleSound, volumeUp, volumeDown] = useAudio();
+    const screenWidth = document.documentElement.clientWidth
+    const screenHeight = document.documentElement.clientHeight
+    const navHeight = screenHeight / 10;
+    const titleWidth = screenWidth / 2
+    const settingsWidth = screenWidth / 4
+    const titleFontSize = Math.min(navHeight / 3, titleWidth / 1)
+    const imageSize = titleFontSize + 20
+    const paddingTopNav = navHeight / 5
+    const navFontSize = settingsWidth / 15
+    const iconSize = navFontSize / 2
 
     return (
         <div>
-            <i className="material-icons left buttonIcon" onClick={toggle}>{playing ? "pause" : "play_arrow"}</i>
-            <i className="material-icons left buttonIcon" onClick={toggleSound}>{mute ? "volume_off" : "volume_up"}</i>
-            <i className="material-icons left buttonIcon" onClick={volumeDown}>{"volume_mute"}</i>
-            <i className="material-icons left buttonIcon" onClick={volumeUp}>{"volume_down"}</i>
+            <i className="material-icons left buttonIcon" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} onClick={toggle}>{playing ? "pause" : "play_arrow"}</i>
+            <i className="material-icons left buttonIcon"  style={{ width: `${iconSize}px`, height: `${iconSize}px` }}onClick={toggleSound}>{mute ? "volume_off" : "volume_up"}</i>
+            <i className="material-icons left buttonIcon"  style={{ width: `${iconSize}px`, height: `${iconSize}px` }}onClick={volumeDown}>{"volume_mute"}</i>
+            <i className="material-icons left buttonIcon"  style={{ width: `${iconSize}px`, height: `${iconSize}px` }}onClick={volumeUp}>{"volume_down"}</i>
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setTimeGlobally } from '../../store/actions/counterActions'
 
 import countdown from '../../audio/countdown.mp3'
-import air_horn from '../../audio/air_horn.mp3'
+import swinkyy from '../../audio/countdown.mp4'
 
 const Counter = () => {
     const [mins, secs, shotSecs] = useSelector(state => [
@@ -19,8 +19,9 @@ const Counter = () => {
     }))
 
     const cdAudio = new Audio(countdown)
-    const airHorn = new Audio(air_horn)
-    airHorn.volume = 0.2
+    const swinky = new Audio(swinkyy)
+    swinky.volume = 1
+    cdAudio.volume = 0.7
 
     const tick = () => {
         if (pause || reset) {
@@ -30,12 +31,11 @@ const Counter = () => {
             }
             return
         }
-
-        if (shotSecs === 1) {
-            airHorn.play()
-        }
-        if (shotSecs === 15){
+        if (shotSecs === 15) {
             cdAudio.play()
+        }
+        if (shotSecs === 2) {
+            swinky.play()
         }
 
 

@@ -17,7 +17,12 @@ const NavBar = () => {
     const screenHeight = document.documentElement.clientHeight
     const navHeight = screenHeight / 10;
     const titleWidth = screenWidth / 2
-    const settingsWith = screenWidth / 4
+    const settingsWidth = screenWidth / 4
+    const titleFontSize = Math.min(navHeight / 3, titleWidth / 1)
+    const imageSize = titleFontSize + 20
+    const paddingTopNav = navHeight / 5
+    const navFontSize = settingsWidth / 15
+    const iconSize = navFontSize / 2
 
 
     const [mins, secs] = useSelector(state => [
@@ -53,7 +58,7 @@ const NavBar = () => {
         setIsOpen(!isOpen)
     }
 
-    const themeOrder = ["dk", "rm"]
+    const themeOrder = ["new", "dk", "rm", "trump", "snoop", "shrek", "pokemon", "com", "thom"]
     const allThemes = {
         dk: {
             name: "dk",
@@ -72,7 +77,70 @@ const NavBar = () => {
                 misc: "#f0e14a",
             },
             path: "./images/rickandmorty/"
-        }
+        },
+        trump: {
+            name: "trump",
+            colors: {
+                main: "#002868",
+                secondary: "#bf0a30",
+                misc: "#ffffff",
+            },
+            path: "./images/trump/"
+        },  
+        com: {
+            name: "com",
+            colors: {
+                main: "#000000",
+                secondary: "#faf333",
+                misc: "#faf333",
+            },
+            path: "./images/com/"
+        },  
+        thom: {
+            name: "thom",
+            colors: {
+                main: "#045474",
+                secondary: "#DC2C1C",
+                misc: "#C4C4CC",
+            },
+            path: "./images/thomas/"
+        },  
+        shrek: {
+            name: "shrek",
+            colors: {
+                main: "#7a9244",
+                secondary: "#5c452d",
+                misc: "#e1dfb6",
+            },
+            path: "./images/shrek/"
+        },  
+        pokemon: {
+            name: "pokemon",
+            colors: {
+                main: "#0075BE",
+                secondary: "#FFCC00",
+                misc: "#FFCC00",
+            },
+            path: "./images/pokemon/"
+        }, 
+        snoop: {
+            name: "snoop",
+            colors: {
+                main: "#676031",
+                secondary: "#31a335",
+                misc: "#b6d5ca",
+            },
+            path: "./images/snoop/"
+        }, 
+        new: {
+            name: "new",
+            colors: {
+                main: "#BB2528",
+                secondary: "#165B33",
+                misc: "#F8B229",
+            },
+            path: "./images/new/"
+        }, 
     }
 
     const getNextTheme = () => {
@@ -95,32 +163,26 @@ const NavBar = () => {
 
     return (
         <div>
-            <nav>
+            <nav style={{ height: "10vh" }}>
+                {console.log(paddingTopNav)}
                 <div className="nav-wrapper" style={{ backgroundColor: `${mainColor}`, borderLine: "outset" }}>
-                    <a className="brand-logo center" style={{ 
-                        width: `50vw`, maxHeight: "10vh",
-                        textAlign: "center",
-                        margin: "0",
-                        display: "inline-block",
-                        verticalAlign: "middle",
-                        lineHeight: "normal"
-                        }}><div className="TitleText">
-                        <img className="titleLogo" src={`./images/logo/nebbet_transparent.png`} />
+                    <a className="brand-logo center" style={{ paddingTop: `${paddingTopNav}px`, width: `50vw`, maxHeight: "10vh", fontSize: `${titleFontSize}px` }}><div className="TitleText">
+                        <img className="titleLogo" style={{ width: `${imageSize}px`, height: `${imageSize}px` }} src={`./images/logo/nebbet_transparent.png`} />
                         {TITLE}
-                        <img className="titleLogo" src={`./images/logo/nebbet_transparent.png`} style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)" }} />
+                        <img className="titleLogo" src={`./images/logo/nebbet_transparent.png`} style={{ WebkitTransform: "scaleX(-1)", transform: "scaleX(-1)", width: `${imageSize}px`, height: `${imageSize}px` }} />
                     </div></a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <ul id="nav-mobile" className="right hide-on-med-and-down" style={{ width: `${settingsWidth}px`, fontSize: `${navFontSize}px`, paddingTop: `${paddingTopNav}px` }}>
                         <li className="NavBarText buttonIcon" onClick={togglePopup}>{INTENSITY}</li>
                         <li className="NavBarText buttonIcon" onClick={getNextTheme}>{THEMES}</li>
                     </ul>
-                    <ul id="nav-mobile" className="left hide-on-med-and-down">
+                    <ul id="nav-mobile" className="left hide-on-med-and-down" style={{ width: `${settingsWidth}px`, fontSize: `${navFontSize}px`, paddingTop: `${paddingTopNav}px` }}>
                         <li className="NavBarText">{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`}</li>
                         <li className="NavBarText">
-                            <i className="material-icons left buttonIcon" onClick={() => { handleTimerButtons("r") }}>restore</i>
-                            <i className="material-icons left buttonIcon" onClick={() => { handleTimerButtons("s") }}>timer</i>
-                            <i className="material-icons left buttonIcon" onClick={() => { handleTimerButtons("p") }}>timer_off</i>
+                            <i className="material-icons left buttonIcon" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} onClick={() => { handleTimerButtons("r") }}>restore</i>
+                            <i className="material-icons left buttonIcon" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} onClick={() => { handleTimerButtons("s") }}>timer</i>
+                            <i className="material-icons left buttonIcon" style={{ width: `${iconSize}px`, height: `${iconSize}px` }} onClick={() => { handleTimerButtons("p") }}>timer_off</i>
                         </li>
-                        <li className="NavBarText"><Player /></li>
+                        <li className="NavBarText" ><Player /></li>
                     </ul>
                 </div>
             </nav>

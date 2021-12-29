@@ -30,6 +30,7 @@ const ShotSelector = () => {
 
     return (
         <div>
+            {console.log(drinkingDict)}
             {shotTimer === 6 ? shotRoulette() : null}
         </div>
     )

@@ -8,31 +8,26 @@
 
 .TitleText {
     /* font-size: calc(20px + 2vmin); */
-    font-size: 3vh;
+    /* font-size: 3vh; */
     color: rgb(255, 255, 255);
     text-shadow: 3px 3px 3px black;
     position: relative;
-    margin-top: 2vh;
+    /* vertical-align: middle; */
   }
 
-.nav-wrapper ul li {
+.nav-wrapper ul li { 
     margin-right: 1vw !important;
     margin-left: 1vw !important;
 }
 
 .NavBarText {
     /* font-size: calc(10px + 2vmin); */
-    font-size: 3vh;
+    /* font-size: 3vh; */
     color: rgb(255, 255, 255);
     position: relative;
     text-shadow: 3px 3px 3px black;
-    margin-top: 2vh;
+    /* vertical-align: middle; */
   }
-
-.titleLogo {
-  height: 5vh;
-  width: 5vh;
-}
 
 .buttonIcon {
   cursor: pointer;

@@ -1,13 +1,13 @@
 import { SETTHEME } from '../constants'
 
 const initConfig = {
-    name: "dk",
+    name: "new",
     colors: {
-        main: "#753513", 
-        secondary : "#F8C477",
-        misc: "#EA0000",
+        main: "#BB2528",
+        secondary: "#165B33",
+        misc: "#F8B229",
     },
-    path: "./images/DK/"
+    path: "./images/new/"
 }
 
 const ThemeReducer = (state = initConfig, action) => {

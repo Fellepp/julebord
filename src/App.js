@@ -18,11 +18,11 @@ function App() {
       props:
         [{
           "type": "svg", "src": `${theme.path}rain.svg`,
-          size: "70"
+          size: "50"
         }],
       rotate: "true",
       clock: "30",
-      max: "40"
+      max: "30"
     };
     const confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
