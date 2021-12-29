@@ -8,7 +8,6 @@ const useAudio = () => {
     const [audio, setAudio] = useState(new Audio(`${path}audio.mp3`));
     const [playing, setPlaying] = useState(false);
     const [mute, setMute] = useState(false);
-    audio.volume = 0.3
 
     const toggle = () => setPlaying(!playing);
     const toggleSound = () => setMute(!mute)
