@@ -21,7 +21,7 @@ const Counter = () => {
     const cdAudio = new Audio(countdown)
     const swinky = new Audio(swinkyy)
     swinky.volume = 1
-    cdAudio.volume = 0.7
+    cdAudio.volume = 1
 
     const tick = () => {
         if (pause || reset) {
