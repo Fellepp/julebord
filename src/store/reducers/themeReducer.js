@@ -1,13 +1,13 @@
 import { SETTHEME } from '../constants'
 
 const initConfig = {
-    name: "new",
+    name: "covid",
     colors: {
-        main: "#BB2528",
-        secondary: "#165B33",
-        misc: "#F8B229",
+        main: "#5482AB",
+        secondary: "#F7E654",
+        misc: "red",
     },
-    path: "./images/new/"
+    path: "./images/covid/"
 }
 
 const ThemeReducer = (state = initConfig, action) => {

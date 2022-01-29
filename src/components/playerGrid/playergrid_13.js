@@ -3,14 +3,14 @@ import './playergrid_13.css';
 import { useSelector } from 'react-redux'
 
 const PlayerGrid_13 = () => {
-    const imgHeight = 150;
-    const imgWidth = 150;
+    const imgHeight = 170;
+    const imgWidth = 170;
     const playerDict = useSelector(state => state.playerState)
     const screenWidth = document.documentElement.clientWidth
     const playerGridWidth = 10 + imgWidth * Object.keys(playerDict).length
     const paddingLeft = (screenWidth - playerGridWidth) / 2
     const shotTimer = useSelector(state => state.timer[2])
-    const theme = useSelector (state => state.theme)
+    const theme = useSelector(state => state.theme)
     const mainColor = theme.colors.main
     let spinner = false
 
@@ -31,7 +31,7 @@ const PlayerGrid_13 = () => {
         return (
             Object.entries(playerDict).map(([keys, values]) => {
                 return (
-                    <img style={{ borderColor: `${mainColor}` }}className="imgBox" src={values['playerImg']} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
+                    <img style={{ borderColor: `${mainColor}` }} className="imgBox" src={values['playerImg']} key={`${keys}_player`} height={imgHeight} width={imgWidth} alt="" onError={addDefaultSrc} />
                 )
             })
         )
@@ -102,6 +102,9 @@ const PlayerGrid_13 = () => {
                         <div className="statsBox" key={`${keys}_stats2`} style={{ fontSize: 13, width: `${imgWidth}px` }}>
                             <div key={`${keys}_wine`} style={{ width: "50%", float: "left" }}>{values['wine'] >= 0 ? `Vin: ${values['wine']}` : `Vin: 0`}</div>
                             <div key={`${keys}_fp`} style={{ width: "50%", float: "right" }}>{values['fp'] >= 0 ? `FP: ${values['fp']}` : `FP: 0`}</div>
+                        </div>
+                        <div className="statsBox" key={`${keys}_stats3`} style={{ fontSize: 17, width: `${imgWidth}px` }}>
+                            <div key={`${keys}_alc`} style={{ width: "100%", float: "left" }}>{values['Alcohol units'] >= 0 ? `Drunk factor: ${values['Alcohol units']}‰` : 'Drunk factor: 0‰'}</div>
                         </div>
                     </div>
                 )

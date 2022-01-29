@@ -17,6 +17,7 @@ const ShotSelector = () => {
         })
 
         Object.entries(playerDict).map(([keys, values]) => {
+            let alc = "Alcohol units"
             let random = rwc(table)
             values['shotType'] = random
             if (values.hasOwnProperty(random)) {
@@ -24,6 +25,18 @@ const ShotSelector = () => {
             }
             else {
                 values[random] = 1
+            }
+            if (!values.hasOwnProperty(alc)){
+                values[alc] = 0
+            }
+            if (random == "beer"){
+                values[alc] += 0.03 
+            }
+            else if (random == "wine"){
+                values[alc] += 0.08
+            }
+            else if (random == "vodka"){
+                values[alc] += 0.17        
             }
         })
     }

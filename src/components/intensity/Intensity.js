@@ -5,7 +5,7 @@ import { setConfig } from '../../store/actions/gameConfigActions'
 
 const Intensity = (props) => {
     const TITLE = "Innstillinger"
-    const option1 = "Total varighet for spillet"
+    const option1 = "Antall shots totalt i spillet"
     const option2 = "Shottefrekvens"
     const option3 = "Dritafaktor"
     const man = "...eller sett sannsynlighet selv"
@@ -26,7 +26,8 @@ const Intensity = (props) => {
         img3: "30%"
     })
     const [totalTime, setTotalTime] = useState([15, 0])
-    const [shotFreq, setShotFreq] = useState([45])
+    const [shotFreq, setShotFreq] = useState(60)
+    const [rounds, setRounds] = useState(15)
     const [weights, setWeights] = useState(drinkingDict)
     const [textValid, setTextValid] = useState(true)
     const [inputWeights, setInputWeights] = useState([])
@@ -77,11 +78,17 @@ const Intensity = (props) => {
     }
 
     const handleChangeTotalTime = (id) => {
-        setTotalTime([id, 0])
+        let time = id*shotFreq
+        setRounds(id)
+        setTotalTime([Math.floor(time/60), time%60])
+        console.log(Math.floor(time/60), time%60)
     }
 
     const handleChangeShotFreq = (id) => {
         setShotFreq(id)
+        let time = rounds*id
+        setTotalTime([Math.floor(time/60), time%60])
+        console.log(Math.floor(time/60), time%60)
     }
 
     const placeHolderWeights = () => {
@@ -173,15 +180,15 @@ const Intensity = (props) => {
                     <div style={{ position: "relative", right: "-40%" }}>
                         <label>
                             <input className="with-gap" name="group1" type="radio" onClick={() => { handleChangeTotalTime(5) }} />
-                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>5m</span>
+                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>5</span>
                         </label>
                         <label>
-                            <input className="with-gap" name="group1" type="radio" onClick={() => { handleChangeTotalTime(10) }} />
-                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>10m</span>
+                            <input className="with-gap" name="group1" type="radio" defaultChecked onClick={() => { handleChangeTotalTime(10) }} />
+                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>10</span>
                         </label>
                         <label>
-                            <input className="with-gap" name="group1" type="radio" defaultChecked onClick={() => { handleChangeTotalTime(15) }} />
-                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>15m</span>
+                            <input className="with-gap" name="group1" type="radio" onClick={() => { handleChangeTotalTime(15) }} />
+                            <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>15</span>
                         </label>
                     </div>
                 </div>
@@ -193,11 +200,11 @@ const Intensity = (props) => {
                             <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>30s</span>
                         </label>
                         <label>
-                            <input className="with-gap" name="group2" type="radio" defaultChecked onClick={() => { handleChangeShotFreq(45) }} />
+                            <input className="with-gap" name="group2" type="radio" onClick={() => { handleChangeShotFreq(45) }} />
                             <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>45s</span>
                         </label>
                         <label>
-                            <input className="with-gap" name="group2" type="radio" onClick={() => { handleChangeShotFreq(60) }} />
+                            <input className="with-gap" name="group2" type="radio" defaultChecked onClick={() => { handleChangeShotFreq(60) }} />
                             <span className="radio-button-text" style={{ paddingLeft: "25px", paddingRight: "10px" }}>60s</span>
                         </label>
                     </div>

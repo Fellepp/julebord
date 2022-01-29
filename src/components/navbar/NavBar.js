@@ -58,8 +58,17 @@ const NavBar = () => {
         setIsOpen(!isOpen)
     }
 
-    const themeOrder = ["new", "dk", "rm", "trump", "snoop", "shrek", "pokemon", "com", "thom"]
+    const themeOrder = ["covid", "labamba", "rm", "trump", "snoop", "shrek", "pokemon", "dk", "com", "thom", "new"]
     const allThemes = {
+        covid: {
+            name: "covid",
+            colors: {
+                main: "#5482AB",
+                secondary: "#F7E654",
+                misc: "red",
+            },
+            path: "./images/covid/"
+        },
         dk: {
             name: "dk",
             colors: {
@@ -140,6 +149,15 @@ const NavBar = () => {
                 misc: "#F8B229",
             },
             path: "./images/new/"
+        }, 
+        labamba: {
+            name: "labamba",
+            colors: {
+                main: "red",
+                secondary: "yellow",
+                misc: "grey",
+            },
+            path: "./images/labamba/"
         }, 
     }
 
